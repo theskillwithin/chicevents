@@ -1,0 +1,90 @@
+//gallery-controller
+	@author: Austin
+	@library mixin
+	@link to readme.md goes here
+
+
+$gallery-item-count: 3
+$gallery-item-display-duration: 5
+
+// seconds
+$gallery-item-transition-duration: 2
+
+// seconds
+$gallery-item-total-duration: $gallery-item-display-duration + $gallery-item-transition-duration
+$gallery-total-duration: $gallery-item-total-duration * $gallery-item-count
+
+$controlInactiveColor: #636262
+$controlActiveColor: #16aeea
+
+=control-inactive
+	color: $controlInactiveColor
+
+=control-active
+	color: $controlActiveColor
+
+=gallery-mixin($height)
+	position: relative
+	height: $height
+	.item
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: #4d87e2
+		opacity: 0
+		transition: opacity .25s
+		&:first-of-type
+			opacity: 1
+	.controls
+		+control-inactive 
+		position: absolute
+		bottom: 0
+		width: 100%
+		
+		text-align: center
+		a
+			transition: color .25s
+		a:hover
+			+control-active
+	@keyframes galleryAnimation
+		0%
+			opacity: 0
+		9.5%, 33%
+			opacity: 1
+		42.9%, 100%
+			opacity: 0
+	@keyframes controlAnimation
+		0%
+			+control-inactive
+		9.5%, 33%
+			+control-active
+		42.9%, 100%
+			+control-inactive
+	//- Interactive
+	.item
+		animation: galleryAnimation #{$gallery-total-duration}s infinite
+	.controls .control-item
+		animation: controlAnimation #{$gallery-total-duration}s infinite
+	.control-operator
+		display: none
+	// Stop hash scrolling
+	// Stop gallery animation when there is a selected item
+	.control-operator:target ~ .item
+		animation: none
+	// Stop control animation when there is a selected item
+	.control-operator:target ~ .controls .control-item
+		+control-inactive
+		animation: none
+	@for $i from 1 through $gallery-item-count
+		// Selected item
+		.control-operator:nth-of-type(#{$i}):target ~ .item:nth-of-type(#{$i})
+			opacity: 1
+		// Selected control item
+		.control-operator:nth-of-type(#{$i}):target ~ .controls .control-item:nth-of-type(#{$i})
+			+control-active
+		.item:nth-of-type(#{$i}),
+		.control-item:nth-of-type(#{$i})
+			$delay: #{($i - 1) * $gallery-item-total-duration - $gallery-item-transition-duration}s
+			animation-delay: $delay

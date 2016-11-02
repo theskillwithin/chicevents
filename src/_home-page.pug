@@ -1,0 +1,102 @@
+- var page='home'
+include _header.pug
+
+// HOME
+main.page-home
+
+	section#howHeartcupWorks
+		.container
+
+			h2.page-title How Heartcup Works 
+
+			.figures.flex.flex--flex-wrap.flex--space-around
+
+				figure.col-3
+					include assets/img/discover-projects.svg
+					figcaption
+						h3 Discover Projects
+						p Explore the network and discover projects to get invovled with.
+				figure.col-3
+					include assets/img/connect-yourself.svg
+					figcaption
+						h3 Connect Yourself
+						p build a unique profile and connect with friends to share the power of giving
+
+				figure.col-3
+					include assets/img/fund-projects.svg
+					figcaption
+						h3 Fund Projects
+						p Reallocate your daily spending to help fund your favorite projects. 
+
+			button Get Started
+
+	section#trendingProjects.grey.mFull
+		.container
+			h2.page-title Trending Projects
+			.swiper-container
+				.swiper-wrapper.flex.flex--space-between
+
+					mixin trendingProjects(image)
+						article.swiper-slide
+							img(src=image)
+
+							div.bottom.flex.flex--space-around
+								.heart
+									include _heart.pug
+								.stats.flex.flex--space-between
+									.funded
+										p 54%
+										p funded
+									.pleged
+										p $190,420
+										p Pleged
+									.days
+										p 25
+										p Days Left
+
+					+trendingProjects("assets/img/afterSchoolPrograms.png")
+					+trendingProjects("assets/img/localAnimalShelter.png")
+					+trendingProjects("assets/img/MusicInThePark.png")
+					+trendingProjects("assets/img/afterSchoolPrograms.png")
+					+trendingProjects("assets/img/localAnimalShelter.png")
+					+trendingProjects("assets/img/MusicInThePark.png")
+				.swiper-button-prev
+				.swiper-button-next
+
+				.swiper-pagination
+			//- .controls
+			//- 	a.control-item(href="#item-1") •
+			//- 	a.control-item(href="#item-2") •
+			//- 	a.control-item(href="#item-3") •
+
+			button Explore All Projects
+
+	section#ourCommunity
+		.container
+			h2.page-title Our Community
+			.flex.flex--flex-wrap
+				figure.col-4.create
+					.angled-bottom
+						h4 Create
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+				figure.col-4.projects
+					.angled-bottom
+						h4 Projects
+						p Lorem ipsum dolor sit amet, consectetur adipisicing 
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+				figure.col-4.business
+					.angled-bottom
+						h4 Business
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+				figure.col-4.charaties
+					.angled-bottom
+						h4 Charaties
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+						p Lorem ipsum dolor sit amet, consectetur adipisicing
+		

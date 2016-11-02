@@ -1,0 +1,44 @@
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+  display: inline-block
+  height: 38px
+  padding: 0 30px
+  color: white
+  text-align: center
+  font-size: 11px
+  font-weight: 600
+  line-height: 38px
+  letter-spacing: .1rem
+  text-transform: uppercase
+  text-decoration: none
+  white-space: nowrap
+  background-color: transparent
+  border-radius: 3px
+  border: 1px solid #bbb
+  cursor: pointer
+  box-sizing: border-box
+  font-family: 'Proxima Nova Rg'
+  background-color: $blue
+  border: 1px solid $blue
+  border-radius: 4px
+  .red
+    background-color: $red
+    border: 1px solid $red
+  &.square
+    border-radius: 0px
+
+  &:hover,
+  &:active,
+  &:focus
+    color: white
+    border-color: #888
+    outline: 0
+    background-color: darken($blue, 5%)
+    border: 1px solid darken($blue, 5%)
+input
+  padding-left: 20px
+  color: grey
+
