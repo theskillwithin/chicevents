@@ -1,15 +1,10 @@
-//header
-	@author Austin
-header.home
-	height: $homeHeaderHeight
 header
-	width: 100%
-	height: $HeaderHeight
-	background-image: url('../img/header-banner.jpg')
-	background-size: cover
-	position: relative
+	display: flex
+	flex-direction: column
 	.logo
 		flex: 1
+		align-self: center
+		margin: 20px 0
 		img
 			width: 100%
 			height: auto
@@ -44,12 +39,7 @@ header
 
 	//.header // [.flex.flex--justify-content.flex--align-items] //
 	.top
-		background-color: rgba(50, 50, 50, .749)
-		position: absolute
-		top: 0
-		left: 0
-		right: 0
-		padding: 25px 10px
+		background-color: #ffcece
 
 
 	.hamburger
