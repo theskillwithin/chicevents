@@ -1,0 +1,69 @@
+{
+  "name": "chiceventsweddings",
+  "version": "0.5.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "jquery": true
+    }
+  },
+  "scripts": {
+    "gh-pages": "",
+    "pug": "pug src/index.pug --out dist/",
+    "uglifyVendorJs": "mkdir -p dist/assets/js && uglifyjs node_modules/swiper/dist/js/swiper.js --screw-ie8 -m -c -o dist/assets/js/vendor.js",
+    "vendorcss": "cp node_modules/swiper/dist/css/swiper.css src/assets/css/1-tools/_swiper.scss && cp node_modules/node-normalize-scss/_normalize.scss src/assets/css/1-tools/_normalize.scss",
+    "clean": "rm -f dist/{assets/css/*,js/*,assets/img/*}",
+    "autoprefixer": "postcss -u autoprefixer -r dist/assets/css/*.css",
+    "scss": "node-sass src/assets/css/main.sass dist/assets/css/main.css --indented-syntax --sourceMap true --outFile xmain.css",
+    "lint": "eslint src/assets/js --fix",
+    "uglify": "mkdir -p dist/assets/js && uglifyjs src/assets/js/*.js --screw-ie8 -o dist/assets/js/app.js --source-map dist/assets/js/app.js.map && uglifyjs src/assets/js/*.js --screw-ie8 --source-map dist/assets/js/app.min.js.map -m -c -o dist/assets/js/app.min.js ",
+    "imagemin": "imagemin src/assets/img/* -o dist/assets/img",
+    "icons": "svgo -f src/assets/img/icons && mkdir -p dist/assets/img && svg-sprite-generate -d src/assets/img/icons -o dist/assets/img/icons.svg",
+    "serve": "browser-sync start --c bs-config.js --server './dist' --files './dist'",
+    "build:fonts": "ditto src/assets/fonts dist/assets/fonts",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run lint && npm run uglify",
+    "build:pug": "npm run pug",
+    "build:images": "npm run imagemin",
+    "build:all": "npm run build:css && npm run build:js && npm run build:images  && npm run build:pug",
+    "watch:css": "onchange 'src/assets/css/**/*.sass' -v -- npm run build:css",
+    "watch:js": "onchange 'src/assets/js/*' -v -- npm run build:js",
+    "watch:pug": "onchange 'src/*.pug' -v -- npm run pug",
+    "watch:images": "onchange 'src/assets/img' -v -- npm run build:images",
+    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images watch:pug",
+    "postinstall": "npm run build:all && npm run watch:all"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "browser-sync": "^2.17.5",
+    "eslint": "^3.9.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "imagemin-cli": "^3.0.0",
+    "node-normalize-scss": "^1.4.0",
+    "normalize": "^0.3.1",
+    "normalize-scss": "^6.0.0",
+    "npm-run-all": "^3.1.1",
+    "npm-watch": "^0.1.6",
+    "onchange": "^3.0.2",
+    "postcss-cli": "^2.6.0",
+    "pug": "^2.0.0-beta6",
+    "svg-sprite-generator": "0.0.7",
+    "svgo": "^0.7.1",
+    "swiper": "^3.4.0",
+    "uglify-js": "^2.7.4"
+  },
+  "dependencies": {
+    "node-sass": "^3.10.1",
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
