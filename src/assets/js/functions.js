@@ -1,5 +1,3 @@
-chic.runSwiper()
-chic.mobileNav()
 
 const chic = {
   runSwiper () {
@@ -57,3 +55,5 @@ const chic = {
   }
 }
 
+chic.runSwiper()
+chic.mobileNav()
