@@ -16,6 +16,7 @@
   },
   "scripts": {
     "gh-pages": "",
+    "babel": "babel src src/assets/js/functions.js --presets=babili --out-file dist/assets/js/app.js --source-maps",
     "pug": "pug src/index.pug --out dist/",
     "uglifyVendorJs": "mkdir -p dist/assets/js && uglifyjs node_modules/swiper/dist/js/swiper.js --screw-ie8 -m -c -o dist/assets/js/vendor.js",
     "vendorcss": "cp node_modules/swiper/dist/css/swiper.css src/assets/css/1-tools/_swiper.scss && cp node_modules/node-normalize-scss/_normalize.scss src/assets/css/1-tools/_normalize.scss",
@@ -29,7 +30,7 @@
     "serve": "browser-sync start --c bs-config.js --server './dist' --files './dist'",
     "build:fonts": "ditto src/assets/fonts dist/assets/fonts",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run lint && npm run uglify",
+    "build:js": "npm run lint && npm run babel",
     "build:pug": "npm run pug",
     "build:images": "npm run imagemin",
     "build:all": "npm run build:css && npm run build:js && npm run build:images  && npm run build:pug",
@@ -42,6 +43,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
+    "babel-cli": "^6.18.0",
+    "babili": "0.0.8",
     "browser-sync": "^2.17.5",
     "eslint": "^3.9.0",
     "eslint-config-standard": "^6.2.1",
