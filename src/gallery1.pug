@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+	include _head.pug
+	body
+		include _header.pug
+		main.page-home
+
+			section#galleries.flex.flex--flex-wrap
+				mixin gallery(image, link)
+					.gallery-item
+						a(href=link)
+							img(src=image)
+				+gallery('http://fillmurray.com/200/200', 'gallery1.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery2.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery3.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery4.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery5.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery6.html')
+				+gallery('http://fillmurray.com/200/200', 'gallery7.html')
+
+		include _footer.pug
