@@ -22,7 +22,7 @@ const chic = {
 
       document.addEventListener('click', event => {
         // console.log(event.currentTarget)
-        if (!event.target.contains(top)) return
+        if (!event.target.contains(header)) return
         // if (event.target === top.querySelector('.container')) return
 
         if (!navUl.classList.contains('mobile')) {
