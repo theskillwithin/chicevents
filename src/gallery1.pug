@@ -8,7 +8,7 @@ html(lang='en')
 			#gallery.flex.flex--flex-wrap.gallery
 				mixin gallery(image, link)
 					.gallery-item
-						a(href=link data-jslghtbx)
+						a(href=link)
 							img(src=image)
 				+gallery('assets/img/Gallery2/image1.jpg', '#')
 				+gallery('assets/img/Gallery2/image2.jpg', '#')
