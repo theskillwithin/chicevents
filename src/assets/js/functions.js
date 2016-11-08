@@ -1,4 +1,6 @@
 import Swiper from 'swiper'
+import baguetteBox from 'baguettebox.js'
+
 const chic = {
   mobileNav () {
     const mq = window.matchMedia('(max-width: 890px)')
@@ -41,3 +43,4 @@ const chic = {
   }
 }
 chic.mobileNav()
+baguetteBox.run('.gallery')
