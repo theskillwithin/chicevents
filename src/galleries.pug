@@ -6,16 +6,17 @@ html(lang='en')
 		main.page-home
 
 			section#galleries.flex.flex--flex-wrap
-				mixin gallery(image, link)
+				mixin gallery(image, link, text)
 					.gallery-item
 						a(href=link)
+							.text=text
 							img(src=image)
-				+gallery('http://fillmurray.com/200/200', 'gallery1.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery2.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery3.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery4.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery5.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery6.html')
-				+gallery('http://fillmurray.com/200/200', 'gallery7.html')
+				+gallery('assets/img/Gallery2/image1.jpg', 'gallery1.html', 'Gallery 1')
+				+gallery('assets/img/Gallery2/image1.jpg', 'gallery2.html', 'Gallery 2')
+				+gallery('assets/img/Gallery3/image1.jpg', 'gallery3.html', 'Gallery 3')
+				+gallery('assets/img/Gallery4/image1.jpg', 'gallery4.html', 'Gallery 4')
+				+gallery('assets/img/Gallery5/image1.jpg', 'gallery5.html', 'Gallery 5')
+				+gallery('assets/img/Gallery6/image1.jpg', 'gallery6.html', 'Gallery 6')
+				+gallery('assets/img/Gallery7/image1.jpg', 'gallery7.html', 'Gallery 7')
 
 		include _footer.pug

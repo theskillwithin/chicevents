@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+	include _head.pug
+	body
+		include _header.pug
+		main.page-home
+
+			#gallery.flex.flex--flex-wrap.gallery
+				mixin gallery(image, link)
+					.gallery-item
+						a(href=link)
+							img(src=image)
+				+gallery('assets/img/Gallery5/image1.jpg', 'assets/img/Gallery5/image1.jpg')
+				+gallery('assets/img/Gallery5/image2.jpg', 'assets/img/Gallery5/image2.jpg')
+				+gallery('assets/img/Gallery5/image3.jpg', 'assets/img/Gallery5/image3.jpg')
+				+gallery('assets/img/Gallery5/image4.jpg', 'assets/img/Gallery5/image4.jpg')
+				+gallery('assets/img/Gallery5/image5.jpg', 'assets/img/Gallery5/image5.jpg')
+				+gallery('assets/img/Gallery5/image6.jpg', 'assets/img/Gallery5/image6.jpg')
+				+gallery('assets/img/Gallery5/image7.jpg', 'assets/img/Gallery5/image7.jpg')
+				
+
+		include _footer.pug
