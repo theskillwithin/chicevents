@@ -32,7 +32,7 @@
     "build:js": "npm run lint && npm run babel",
     "build:pug": "npm run pug",
     "build:images": "npm run imagemin",
-    "build:all": "npm run build:css && npm run build:js && npm run build:images  && npm run build:pug",
+    "build:all": "npm run build:css && npm run build:js && npm run build:pug",
     "watch:css": "onchange 'src/assets/css/**/*.sass' -v -- npm run build:css",
     "watch:js": "onchange 'src/assets/js/*' -v -- npm run build:js",
     "watch:pug": "onchange 'src/*.pug' -v -- npm run pug",
