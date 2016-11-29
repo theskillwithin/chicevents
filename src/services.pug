@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+	include _head.pug
+	body
+		include _header.pug
+		main.page-home
+
+			section#services
+				.container
+
+					.flex.flex--align-items.flex--center.flex--flex-wrap
+						img(src="assets/img/services.png")
+
+					.bottom
+						h2.weddingPackages Wedding Packages
+						p We would love to help make the wedding of your dreams a reality!  Because you and your wedding vision are unique, we offer a free initial consultation, during which we will go over our three service levels with you and help you choose a planning package that meets your individual needs.
+						p Whichever package you choose, our goal is to take the stress out of planning your wedding and to ensure that you enjoy your wedding day to it's fullest, knowing we are there to take care of all the details
+					.packages.flex.flex--center.flex--space-around.flex--wrap
+						.col-3
+							p FULL SERVICE PACKAGE
+						.col-3
+							p MID-RANGE PACKAGE
+						.col-3
+							p MONTH-OUT PACKAGE
+
+
+			br
+
+		include _footer.pug
